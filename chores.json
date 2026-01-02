@@ -1,0 +1,51 @@
+{
+  "Monday": [
+    "Take Out Trash",
+    "Dishes",
+    "Milkshake",
+    "Isaac's Medicine",
+    "Mom's Laundry",
+    "Put Away Whites"
+  ],
+  "Tuesday": [
+    "Dishes",
+    "Milkshake",
+    "Isaac's Medicine",
+    "Mom's Laundry",
+    "Put Away Boys' Laundry"
+  ],
+  "Wednesday": [
+    "Dishes",
+    "Milkshake",
+    "Isaac's Medicine",
+    "Downstairs Laundry",
+    "Put Away Mom's Laundry"
+  ],
+  "Thursday": [
+    "Dishes",
+    "Milkshake",
+    "Isaac's Medicine",
+    "Dad's Laundry",
+    "Put Away Mom's Laundry"
+  ],
+  "Friday": [
+    "Dishes",
+    "Milkshake",
+    "Isaac's Medicine",
+    "Violet's Laundry",
+    "Put Away Downstairs Laundry"
+  ],
+  "Saturday": [
+    "Dishes",
+    "Milkshake",
+    "Whites Laundry",
+    "Put Away Dad's Laundry",
+    "Violet Clean Room"
+  ],
+  "Sunday": [
+    "Dishes",
+    "Milkshake",
+    "Boys' Laundry",
+    "Put Away Violet's Laundry"
+  ]
+}

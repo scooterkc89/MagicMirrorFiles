@@ -1,0 +1,15 @@
+.familyTasks .module-content td:first-child span {
+	display:none;
+}
+
+.MMM-WiFiPassword .layout-horizontal {
+	margin-bottom: .5em;
+}
+
+.MMM-WiFiPassword .password {
+	margin-left: .5em;
+}
+
+.character-spotlight-virtue .module-content tr:first-child td {
+	color: red;
+}

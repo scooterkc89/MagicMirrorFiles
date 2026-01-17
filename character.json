@@ -23,7 +23,7 @@
   "February": {
     "virtue": "Responsibility",
     "definition": "Responsibility means taking care of your duties and doing what you should.",
-    "icon": '<i class="fa-solid fa-broom fa-bounce"></i>',
+    "icon": "<i class='fa-solid fa-broom fa-bounce'></i>",
     "examples": [
       "Finishing chores",
       "Doing homework",
@@ -44,7 +44,7 @@
   "March": {
     "virtue": "Courage",
     "definition": "Courage means doing what is right even when you feel scared.",
-    "icon": '<i class="fa-solid fa-shield fa-shake"></i>',
+    "icon": "<i class='fa-solid fa-shield fa-shake'></i>",
     "examples": [
       "Speaking up",
       "Trying something new",
@@ -65,7 +65,7 @@
   "April": {
     "virtue": "Patience",
     "definition": "Patience means staying calm while waiting or when something is difficult.",
-    "icon": '<i class="fa-solid fa-hourglass-end fa-spin fa-spin-reverse"></i>',
+    "icon": "<i class='fa-solid fa-hourglass-end fa-spin fa-spin-reverse'></i>",
     "examples": [
       "Waiting your turn",
       "Practicing a new skill",
@@ -86,7 +86,7 @@
   "May": {
     "virtue": "Honesty",
     "definition": "Honesty means telling the truth and being trustworthy.",
-    "icon": '<i class="fa-solid fa-book-open fa-flip"></i>',
+    "icon": "<i class='fa-solid fa-book-open fa-flip'/></i>",
     "examples": [
       "Admitting mistakes",
       "Not lying or cheating",
@@ -112,7 +112,7 @@
       "Keeping promises",
       "Choosing right over easy"
     ],
-    "icon": '<i class="fa-solid fa-scale-balanced fa-shake"></i>',
+    "icon": "<i class='fa-solid fa-scale-balanced fa-shake'></i>",
     "quotes": [
       { "quote": "Integrity is doing the right thing, even when no one is watching.", "author": "C.S. Lewis" },
       { "quote": "The time is always right to do what is right.", "author": "Martin Luther King Jr." },
@@ -128,7 +128,7 @@
   "July": {
     "virtue": "Gratitude",
     "definition": "Gratitude means noticing and appreciating good things in your life and the people that give them to you.",
-    "icon": '<i class="fa-solid fa-hands-praying fa-bounce"></i>',
+    "icon": "<i class='fa-solid fa-hands-praying fa-bounce'></i>",
     "examples": [
       "Saying thank you",
       "Appreciating help",
@@ -149,7 +149,7 @@
   "August": {
     "virtue": "Empathy",
     "definition": "Empathy means understanding how someone else feels.",
-    "icon": '<i class="fa-solid fa-people-arrows fa-flip"></i>',
+    "icon": "<i class='fa-solid fa-people-arrows fa-flip'></i>",
     "examples": [
       "Listening",
       "Comforting others",
@@ -170,7 +170,7 @@
   "September": {
     "virtue": "Perseverance",
     "definition": "Perseverance means not giving up, even when something is hard.",
-    "icon": '<i class="fa-solid fa-person-hiking fa-bounce"></i>',
+    "icon": "<i class='fa-solid fa-person-hiking fa-bounce'></i>",
     "examples": [
       "Practicing",
       "Trying again",
@@ -191,7 +191,7 @@
   "October": {
     "virtue": "Respect",
     "definition": "Respect means treating people and things with care.",
-    "icon": '<i class="fa-solid fa-handshake fa-shake"></i>',
+    "icon": "<i class='fa-solid fa-handshake fa-shake'></i>",
     "examples": [
       "Using polite words",
       "Listening",
@@ -212,7 +212,7 @@
   "November": {
     "virtue": "Citizenship",
     "definition": "Citizenship means helping your family, school, and community, and taking care of our shared planet.",
-    "icon": '<i class="fa-solid fa-earth-americas fa-beat"></i>',
+    "icon": "<i class='fa-solid fa-earth-americas fa-beat'></i>",
     "examples": [
       "Helping neighbors",
       "Picking up litter",
@@ -233,7 +233,7 @@
   "December": {
     "virtue": "Generosity",
     "definition": "Generosity means giving your time, help, money, or things to others.",
-    "icon": '<i class="fa-solid fa-gift fa-shake"></i>',
+    "icon": "<i class='fa-solid fa-gift fa-shake'></i>",
     "examples": [
       "Sharing",
       "Helping someone",

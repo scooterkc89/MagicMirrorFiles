@@ -2,7 +2,7 @@
   "January": {
     "virtue": "Kindness",
     "definition": "Kindness means being caring and helpful to others.",
-    "icon": '<i class="fa-solid fa-heart fa-beat"></i>',
+    "icon": "<i class='fa-solid fa-heart fa-beat'></i>",
     "examples": [
       "Helping someone who needs it",
       "Saying kind words",

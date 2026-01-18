@@ -9,12 +9,22 @@
  * see https://docs.magicmirror.builders/configuration/introduction.html#enviromnent-variables
  */
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-const today = new Date();
+let today = new Date();
+today.setHours(0,0,0,0);
+const epoch = today.getTime()/1000;
+console.log(epoch)
+const recyclingStart = 1767571200;
+console.log(recyclingStart);
+console.log(epoch -recyclingStart);
 const dayOfWeekName = daysOfWeek[today.getDay()];
 let tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
+console.log((epoch - recyclingStart) %14)
 const tomorrowString = (tomorrow.getMonth() + 1) + "/" + tomorrow.getDate() + "/" + tomorrow.getFullYear();
 const todayString = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+const month = today.toLocaleString('default', {month: 'long'});
+let isRecyclingDay = ((epoch - recyclingStart) %14 ==0) && dayOfWeekName == 'Monday';
+
 
 let config = {
 	address: "localhost",	// Address to listen on, can be:
@@ -44,6 +54,7 @@ let config = {
 	logLevel: ["INFO", "LOG", "WARN", "ERROR"], // Add "DEBUG" for even more logging
 	timeFormat: 12,
 	units: "imperial",
+	zoom: 2.0,
 
 	modules: [
 		{
@@ -59,8 +70,11 @@ let config = {
 			module: "MMM-pages",
 			config: {
 			    timings: {
-				default: 2000,
-				2: 200000
+				default: 3000,
+				0: 65000,
+				1: 35000,
+				2: 50000
+				
 			    },
 			    modules: [
 				["page0"],           // class name for page 0
@@ -131,7 +145,7 @@ let config = {
 			classes: "page0 ",
   			config: {
     				issueToken: "https://accounts.google.com/o/oauth2/iframerpc?action=issueToken&response_type=token%20id_token&login_hint=AJDLj6LQu-SMCQLMJfOUep6S7tCeVnigKg04qmqkADFwRFIPCYXg-ZNAVph7fU8IUu6EAJqq1RtX2-J-V_6dNiUvcRqzSoTzfQ&client_id=733249279899-44tchle2kaa9afr5v9ov7jbuojfr9lrq.apps.googleusercontent.com&origin=https%3A%2F%2Fhome.nest.com&scope=openid%20profile%20email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fnest-account&ss_domain=https%3A%2F%2Fhome.nest.com&include_granted_scopes=true&auto=0&fedcm_enabled=true",
-    				cookies: "NID=528=cZsYI7O9p5MMYS9J_S0i-aNke-OyW93ZErEvaUEXpFi1n1ZxCIQby0M1RQJ3Rf3ECQFRzQyjZRI_utJBK8gg5tDDz0vH0-jDIqmlKst51I3qvlDMWNOCmoqRi0yh3druPnc8qn9AseOdIM-Zw7tAbkQ0KuMdex-5A6N9egdKInzCCo8f-JzrV-xPhXbCOaKYqKDE7m4SqMNRjr7rahnnk9jKsMCUOWd6IE23D1WuZo6ILajI6oDJ88VKA5E_o3xke0yHwaNQHDUvniwsWb3v1ojfOsweQt9QjWfXvF2PiNZyndpvooKhkCd-DfofnO8POzstwRqGgYHQKasR5aLnMa58l89YK6CdCi-mFBYyOAx7A43yhcvl_ADQ2xvxERFdNcTg2zN-4w8FkmqYrDpqupdM2UG4l7Ao4S8Za6wWKONFFuQfBigy1i0Z66A9re4cT2Oj0EME2ZYFikp3Ltteu7dZeLk8jJ0Zcy8IY4rQC5WtmT7zR0IHz1FOzGPw9opXNgX8SM1MSEgGxMufDiy5YTFb5QR10FV3AqjazicZXM9Lm8ewAWBQy3ivoXiVY26XFq5FyBR_1fDZxm7NRYrMrVYODHF0YJdPZ0_MjdyZCh65jptI0gXJCAILWUSDzS5ueyhlqBKH0TmPQNe2YsecuBjoegCcSx3ocYJrlg; __Secure-3PSID=g.a0005gi_23KKiOs-xHlbNmbQacnw3YT9cuQuVkLw5tEi59LrKg_x5HBlhXVshh2rXC7AhX0y7AACgYKAfcSARUSFQHGX2Mi8nIvVSAim1frGq-4ftsd7BoVAUF8yKpVQKBO3Whe6MaD1N3XzRg-0076; __Secure-3PAPISID=d0XW7GjTDzCjehOF/As-x49dil_HucoXrx; __Host-3PLSID=s.youtube:g.a0005gi_2-3hC9okGCSXDkBWCVvfx4gTgAfhPjVO7Ii0bkvNUfi8Lo8LB_TtiZr5z5-k657TqwACgYKAScSARUSFQHGX2MiqENMa_Fj7KZ9RHzBGl8OnxoVAUF8yKoBDMeqpL6uklj_qR6Aq4Uz0076; __Secure-3PSIDCC=AKEyXzWL0V-Hr_0kgRSRWv59EkZLAhp2rS_Hb_G5bszQopKDS6LhI8fswXhrCiHmttig98zd",
+    				cookies: "NID=528=S4XUw0XF-Y6xqdpdajydN2LwfOsn1y4D3SoWFC-0B7uQQOiuVxeTlTtigyaJ4oZcdjp4M4Juvqtt14JlscAsO1ydZCcda-QZy5R2YphEq4JKwUlVq2uzJ7PZgCcRWhFD8d5nu-hj0is4YM07508q9C0W4lZIzl7VlmnRHP_98nBikRcPgV7fGyfJInVpfHhW1kokIZfDcR7AlQh_KWfzVSyNF4RBVfATGe74rMx1IBi4RIlhFfwO7xVPs6r33PdcD29sxOhT0NndJKFBFfayQF60Aejn8OWPvXNQqL6M1Ud73W0biyGPm8bCVHnwqpb-sntdTKKmsJQpb-p-RMkKFnmeZsXq1YH8SQ-LJOUFiPCFJ5L3KrCgTTbrAJchojpUmEWVNcmpUnzQjvMY83G_A0MdLyQVa4zE7Qzz_rEu2-Y0fJYrNqhrPSC_d1G7TFZePEYRMahtclBHOffDx-yP9fmxHJrWh12qasBD8IuwvAPGph0QEL8rpCIs4CUIoFZNwmQnZFdPvY_zl3MoWqNx3rEiyBU17piJVaXrnz_wRcMoxdiHn2nCvTiuhkT6wQbM8KmECVyuAbFwIYGOw9kq5-Sf_s7-7wKZONz0PjE6w4CdRaX8vJW5A87VEVpGIfny9DYG1T3d_p1D9z8e_2oeIz_w1sI8bmsEvLEfLQ; __Secure-3PSID=g.a0005wi_233MjPoAX1u5avhNp7N9BQs5YFpZwu_4a6XJxZQj0tlGBOsBwJmznYQqTBgeOR_LVwACgYKAfoSARUSFQHGX2MiZgRGd231Y4bkB8OCHa062xoVAUF8yKo4_AQN9tMiBHx4DBavrBBi0076; __Secure-3PAPISID=tBESPnvSFfmc2qtz/A-lk0_thqkQ-FVhra; __Host-3PLSID=s.youtube:g.a0005wi_26C3FVh8bJFUbFXE0w17cvg3e9bIs4OxTsXWVCNtLAH-mYC5V7nhBwJWr0cHcPXgywACgYKAYESARUSFQHGX2MiFiFZd4dbhbjpVcetaKO_dRoVAUF8yKqjWwREdS1SDn33fWt91Ckm0076; __Secure-3PSIDCC=AKEyXzWVvicaRUVhCAxdTDd2n5ad4EAQlGxW1XpMFFYMphuNHwhSD8GUQQ73GrJazZzDnSqq",
     				temperatureUnit: "F",
   			}
 		},
@@ -199,7 +213,7 @@ let config = {
 		  	module: "MMM-json",
 		  	position: "top_center",
 		  	header: "Today's Tasks",
-			classes: "familyTasks page0",
+			classes: "json-numbered-list tasks page0",
 			config: {
 				refreshInterval: 21600,
 		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/chores.json",
@@ -207,7 +221,18 @@ let config = {
 			}
 		},
 		{
-    			module: 'MMM-WiFiPassword',
+      			module: "helloworld",
+      			position: "top_center", // This can be any of the regions.
+			classes: "page0 medium light bright",
+			disabled: !isRecyclingDay,
+      			config: {
+ 
+        			text: "<i class='fa-solid fa-recycle fa-spin'></i> Today is a Recycling Day"
+      			}
+    		},
+		
+		{
+    			module: 'MMM-WiFiPassword', 
     			position: "bottom_left",
 			classes: "page0 ",
       			config: {
@@ -220,7 +245,7 @@ let config = {
 		},
 		{
             		module: "MMM-DailyPokemon",
-            		position: "middle_center",
+            		position: "lower_third",
 			classes: "page1",
 		    	config: {
 				minPoke: 1,
@@ -236,7 +261,44 @@ let config = {
 		    	}
         	},
 		{
-      			module: "helloworld",
+    			module: 'MMM-PokemonGOEvents',
+    			position: 'top_right',
+    			header: "Pokemon GO Events",
+			classes: "page1",
+    			config: {
+        			category: "current",
+        			theme: "default",
+        			updateInterval: 500000,
+        			maxEvents: 4,
+        			truncateTitle: 0,
+        			exactTimestamp: false,
+        			eventWhitelist: [],
+        			eventBlacklist: ["ticketed-event", "pokemon-spotlight-hour", "raid-day", "raid-battles", "raid-hour", "raid-weekend", "go-battle-league"],
+        			specificEventBlacklist: [],
+        			eventIcon: "fa-solid fa-ticket"
+    			}
+		},
+		{
+    			module: 'MMM-PokemonGOEvents',
+    			position: 'top_right',
+    			header: "Upcoming Events",
+			classes: "page1",
+    			config: {
+        			category: "upcoming",
+        			theme: "default",
+        			updateInterval: 500000,
+        			maxEvents: 3,
+        			truncateTitle: 0,
+        			exactTimestamp: false,
+        			eventWhitelist: [],
+        			eventBlacklist: ["ticketed-event", "pokemon-spotlight-hour", "raid-day", "raid-battles", "raid-hour", "raid-weekend", "go-battle-league"],
+        			specificEventBlacklist: [],
+        			eventIcon: "fa-solid fa-ticket"
+    			}
+		},
+		
+		{
+      			module: "helloworld", 
       			position: "top_left", // This can be any of the regions.
 			classes: "page1 large light bright",
       			config: {
@@ -248,9 +310,9 @@ let config = {
 		  	module: "MMM-json",
 		  	position: "top_left",
 		  	header: "This Week",
-			classes: "familyTasks page1",
+			classes: "tasks json-numbered-list page1",
 			config: {
-				refreshInterval: 21600,
+				refreshInterval: 216000,
 		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/goals.json",
 				jq: "thru(a => a.this_week)"
 			}
@@ -259,9 +321,9 @@ let config = {
 		  	module: "MMM-json",
 		  	position: "top_left",
 		  	header: "This Month",
-			classes: "familyTasks page1",
+			classes: "tasks json-numbered-list page1",
 			config: {
-				refreshInterval: 21600,
+				refreshInterval: 216000,
 		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/goals.json",
 				jq: "thru(a => a.this_month)"
 			}
@@ -270,38 +332,118 @@ let config = {
 		  	module: "MMM-json",
 		  	position: "top_left",
 		  	header: "Big Goals",
-			classes: "familyTasks page1",
+			classes: "tasks json-numbered-list page1",
 			config: {
-				refreshInterval: 21600,
+				refreshInterval: 216000,
 		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/goals.json",
 				jq: "thru(a => a.big_goals)"
 			}
 		},
 {
       			module: "helloworld",
-      			position: "top_center", // This can be any of the regions.
-			classes: "page2 large light bright",
+      			position: "top_bar", // This can be any of the regions.
+			classes: "page2 xlarge light bright",
       			config: {
  
-        			text: "Monthly Character Spotlight"
+        			text: "Monthly Character Spotlight: " + month
       			}
     		},
 		{
-		  	module: "MMM-json",
-		  	position: "top_center",
-			classes: "character-spotlight-virtue page2",
+		  	module: "MMM-json", 
+		  	position: "top_bar", 
+			classes: "character-spotlight-virtue page2", 
 			config: {
-				refreshInterval: 21600,
+				refreshInterval: 2160000,
 		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/character.json",
-				jq: "thru(a => a.January)",
+				jq: "thru(a => a." + month + ")",
 				values: [
 		      			{
-						query: "$.virtue"
+						query: ["$.virtue", "$.icon"]
 		      			},
+			    	],
+			}
+		},
+		{
+		  	module: "MMM-json", 
+		  	position: "top_bar", 
+			classes: "character-spotlight-virtue-def page2", 
+			config: {
+				refreshInterval: 2160000,
+		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/character.json",
+				jq: "thru(a => a." + month + ")",
+				values: [
 					{
 						query: "$.definition"
 		      			}
 			    	],
+			}
+		},
+		{
+		  	module: "MMM-json", 
+		  	position: "top_left", 
+			classes: "character-spotlight-examples json-numbered-list page2", 
+			header: "Examples",
+			config: {
+				refreshInterval: 2160000,
+		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/character.json",
+				jq: "thru(a => a." + month + ".examples)"
+				
+			}
+		},
+		{
+		  	module: "MMM-json",
+		  	position: "top_left", 
+			classes: "character-spotlight-quotes json-numbered-list page2", 
+			config: {
+				refreshInterval: 2160000,
+		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/character.json",
+				jq: "thru(a => a." + month + ".quotes)",
+				values: [
+		      			{
+						query: ["$[0].quote", "$[0].author"],
+						prefix:['"',"-"],
+						suffix:['"',""]
+		      			},
+					{
+						query: ["$[1].quote", "$[1].author"],
+						prefix:['"',"-"],
+						suffix:['"',""]
+		      			},
+					{
+						query: ["$[2].quote", "$[2].author"],
+						prefix:['"',"-"],
+						suffix:['"',""]
+		      			},
+			    	],
+				
+			}
+		},
+		{
+		  	module: "MMM-json",
+		  	position: "top_right", 
+			classes: "character-spotlight-examples json-numbered-list page2", 
+			header: "Thoughtful Questions",
+			config: {
+				refreshInterval: 2160000,
+		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/character.json",
+				jq: "thru(a => a." + month + ".questions)"
+				
+			}
+		},
+		{
+		  	module: "MMM-json",
+		  	position: "bottom_bar",
+			classes: "character-spotlight-challenge json-numbered-list page2", 
+			config: {
+				refreshInterval: 2160000,
+		    		url: "https://raw.githubusercontent.com/scooterkc89/MagicMirrorFiles/refs/heads/main/character.json",
+				jq: "thru(a => a." + month + ")",
+				values: [
+		      			{
+						query: "$.challenge",
+						prefix: "MONTHLY CHALLENGE: "
+		      			}
+				]
 			}
 		},
  

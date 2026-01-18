@@ -1,4 +1,4 @@
-.familyTasks .module-content td:first-child span {
+.json-numbered-list .module-content td:first-child span {
 	display:none;
 }
 
@@ -11,5 +11,93 @@
 }
 
 .character-spotlight-virtue .module-content tr:first-child td {
-	color: red;
+	font-family: var(--font-primary), sans-serif;
+	font-weight: 700;
+	font-size: var(--font-size-large);
+	line-height: 1;
+	padding-bottom: 30px;
 }
+.character-spotlight-virtue {
+	text-align: left;
+}
+.character-spotlight-virtue-def {
+	text-align: left;
+	padding-bottom: 30px;
+}
+
+.character-spotlight-virtue-def .module-content tr:first-child td {
+	font-size: var(--font-size-large);
+	color: var(--color-text);
+	font-family: var(--font-secondary), sans-serif;
+	font-weight: 100;
+}
+
+.character-spotlight-virtue .module-content td:nth-child(3) {
+	padding-left: 30px;
+	width: 100%;
+}
+
+
+.character-spotlight-examples .module-header {
+	font-size: var(--font-size-medium);
+	line-height: 1.225;
+}
+
+.character-spotlight-quotes .module-header {
+	font-size: var(--font-size-medium);
+	line-height: 1.225;
+	padding-top: 60px;
+}
+
+.character-spotlight-examples .module-content td {
+  font-family: var(--font-primary), sans-serif;
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: var(--font-size-medium);
+  line-height: 1.225;
+}
+
+character-spotlight-quotes .module-content td {
+  font-family: var(--font-primary), sans-serif;
+  color: var(--color-text);
+  font-size: var(--font-size-medium);
+  line-height: 1.225;
+}
+
+.character-spotlight-quotes .module-content td:nth-child(3) {
+	color: var(--color-text-dimmed);
+	font-size: var(--font-size-small);
+	line-height: 1.225;
+	
+}
+
+.character-spotlight-challenge .module-content td {
+  font-family: var(--font-primary), sans-serif;
+  font-size: var(--font-size-large);
+  line-height: 1;
+  font-weight: 700;
+}
+
+.character-spotlight-challenge .module-header {
+	font-size: var(--font-size-medium);
+	line-height: 1.225;
+}
+
+.tasks .module-header {
+	font-size: var(--font-size-medium);
+	line-height: 1.225;
+}
+
+.tasks .module-content td {
+  font-family: var(--font-primary), sans-serif;
+  font-weight: 700;
+  color: var(--color-text);
+  font-size: var(--font-size-medium);
+  line-height: 1.225;
+}
+#poke-subname {
+	display: block;
+	padding-top: 30px;
+}
+
+

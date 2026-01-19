@@ -15,12 +15,14 @@ const referenceDate = new Date('2026-01-05T00:00:00');
 const dayOfWeekName = daysOfWeek[today.getDay()];
 let tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
-const month = today.toLocaleString('default', {month: 'long'});
 const msInDay = 24 * 60 * 60 * 1000;
 const diffInTime = today.getTime() - referenceDate.getTime();
 const diffInDays = Math.floor(diffInTime / msInDay);
 const weeksPassed = Math.floor(diffInDays / 7);
-const isRecyclingWeek = dayOfWeekName == 'Monday' && (weeksPassed % 2 === 0);
+const tomorrowString = (tomorrow.getMonth() + 1) + "/" + tomorrow.getDate() + "/" + tomorrow.getFullYear();
+const todayString = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+const month = today.toLocaleString('default', {month: 'long'});
+let isRecyclingDay = (weeksPassed %2) === 0 && dayOfWeekName == 'Monday';
 
 
 let config = {

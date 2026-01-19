@@ -13,7 +13,7 @@ let today = new Date();
 today.setHours(0,0,0,0);
 const epoch = today.getTime()/1000;
 console.log(epoch)
-const recyclingStart = 1767571200;
+const recyclingStart = 1767592800;
 console.log(recyclingStart);
 console.log(epoch -recyclingStart);
 const dayOfWeekName = daysOfWeek[today.getDay()];

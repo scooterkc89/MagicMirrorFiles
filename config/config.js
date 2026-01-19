@@ -11,19 +11,16 @@
 const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 let today = new Date();
 today.setHours(0,0,0,0);
-const epoch = today.getTime()/1000;
-console.log(epoch)
-const recyclingStart = 1767592800;
-console.log(recyclingStart);
-console.log(epoch -recyclingStart);
+const referenceDate = new Date('2026-01-05T00:00:00');
 const dayOfWeekName = daysOfWeek[today.getDay()];
 let tomorrow = new Date();
 tomorrow.setDate(tomorrow.getDate() + 1);
-console.log((epoch - recyclingStart) %14)
-const tomorrowString = (tomorrow.getMonth() + 1) + "/" + tomorrow.getDate() + "/" + tomorrow.getFullYear();
-const todayString = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
 const month = today.toLocaleString('default', {month: 'long'});
-let isRecyclingDay = ((epoch - recyclingStart) %14 ==0) && dayOfWeekName == 'Monday';
+const msInDay = 24 * 60 * 60 * 1000;
+const diffInTime = today.getTime() - referenceDate.getTime();
+const diffInDays = Math.floor(diffInTime / msInDay);
+const weeksPassed = Math.floor(diffInDays / 7);
+const isRecyclingWeek = dayOfWeekName == 'Monday' && (weeksPassed % 2 === 0);
 
 
 let config = {
